@@ -80,8 +80,8 @@ module.exports = robot => {
     }
   });
 
-  // いいねいくつ？ と聞くといいねの数を答えてくれる
-  robot.hear(/いいねいくつ[\?？]/i, msg => {
+  // 草何本？ と聞くといいねの数を答えてくれる
+  robot.hear(/草何本[\?？]/i, msg => {
     const user = msg.message.user;
 
     let username = msg.message.user.profile.display_name;
@@ -99,7 +99,7 @@ module.exports = robot => {
         goodcount: 0
       }
     }).spread((goodcount, isCreated) => {
-      const message = `${username}ちゃんのいいねは ${goodcount.goodcount} こだよ！`;
+      const message = `${username}ちゃんの草は ${goodcount.goodcount} こだよ！`;
       msg.send(message);
     });
   });
